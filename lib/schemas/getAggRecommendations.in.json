@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "aggId": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "Authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "startNum": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+        }
+    }
+}

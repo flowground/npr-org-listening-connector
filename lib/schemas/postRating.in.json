@@ -1,0 +1,102 @@
+{
+    "type": "object",
+    "properties": {
+        "Authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "channel": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "npr",
+                "followed",
+                "recommended",
+                "emailstories",
+                "emailprograms",
+                "lapsedusersemail",
+                "ongoing email",
+                "newscasts",
+                "shows"
+            ],
+            "default": "npr"
+        },
+        "recommend": {
+            "required": false,
+            "type": "boolean",
+            "default": true
+        },
+        "requestBody": {
+            "items": {
+                "properties": {
+                    "affiliations": {
+                        "description": "An array of IDs & other data about collections or podcasts the user has ratings for; produced by the server and should be sent back as received; used for tracking program and podcast suggestions",
+                        "items": {
+                            "type": "object"
+                        },
+                        "type": "array"
+                    },
+                    "channel": {
+                        "default": "npr",
+                        "description": "The channel this media item was pulled from",
+                        "type": "string"
+                    },
+                    "cohort": {
+                        "description": "The primary cohort of the current logged-in user",
+                        "type": "string"
+                    },
+                    "duration": {
+                        "description": "Number of seconds this audio piece is expected to last",
+                        "format": "int32",
+                        "maximum": 9999,
+                        "minimum": 0,
+                        "type": "integer"
+                    },
+                    "elapsed": {
+                        "description": "Number of seconds since the start of playback for this media item, as an integer",
+                        "format": "int32",
+                        "maximum": 9999,
+                        "minimum": 0,
+                        "type": "integer"
+                    },
+                    "mediaId": {
+                        "description": "The media id as given by the media object",
+                        "pattern": "^\\d{3,}:[\\w-]{5,}$",
+                        "type": "string"
+                    },
+                    "origin": {
+                        "description": "How the recommendation was generated",
+                        "pattern": "^[A-Z0-9_]{2,10}$",
+                        "type": "string"
+                    },
+                    "rating": {
+                        "description": "String representing the rating",
+                        "pattern": "^[A-Z0-9_]{2,10}$",
+                        "type": "string"
+                    },
+                    "timestamp": {
+                        "description": "ISO-8601 formatted date/time; typically replaced by the client with the actual rating time",
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "mediaId",
+                    "origin",
+                    "rating",
+                    "elapsed",
+                    "duration",
+                    "timestamp",
+                    "channel",
+                    "cohort"
+                ],
+                "type": "object"
+            },
+            "type": "array"
+        },
+        "X_Advertising_ID": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

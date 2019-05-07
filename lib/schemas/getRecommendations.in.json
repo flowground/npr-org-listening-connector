@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "Authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "channel": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "npr",
+                "followed",
+                "recommended",
+                "emailstories",
+                "emailprograms",
+                "lapsedusersemail",
+                "ongoing email",
+                "newscasts",
+                "shows"
+            ],
+            "default": "npr"
+        },
+        "sharedMediaId": {
+            "required": false,
+            "type": "string"
+        },
+        "notifiedMediaId": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Advertising_ID": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "Authorization": {
+            "required": true,
+            "type": "string"
+        },
+        "exploreOnly": {
+            "required": false,
+            "type": "boolean",
+            "default": false
+        }
+    }
+}
